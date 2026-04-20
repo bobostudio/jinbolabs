@@ -3,16 +3,56 @@ const state = {
   categories: [],
   activeCategory: "all",
   query: "",
+  appearance: {
+    backgroundPosition: "center center",
+    glassOpacity: 28,
+  },
 };
 
 const elements = {
+  root: document.documentElement,
   categoryBar: document.querySelector("#categoryBar"),
   appGrid: document.querySelector("#appGrid"),
   searchInput: document.querySelector("#site-search"),
   resultCount: document.querySelector("#resultCount"),
   resetButton: document.querySelector("#resetButton"),
   emptyState: document.querySelector("#emptyState"),
+  appearanceButton: document.querySelector("#appearanceButton"),
+  appearancePanel: document.querySelector("#appearancePanel"),
+  bgPositionGrid: document.querySelector("#bgPositionGrid"),
+  glassOpacityInput: document.querySelector("#glassOpacityInput"),
+  glassOpacityValue: document.querySelector("#glassOpacityValue"),
+  beijingTime: document.querySelector("#beijingTime"),
+  beijingDate: document.querySelector("#beijingDate"),
 };
+
+const appearanceStorageKey = "jinbo-launchpad-appearance";
+const beijingTimeZone = "Asia/Shanghai";
+const beijingDateFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: beijingTimeZone,
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  weekday: "long",
+});
+const beijingTimeFormatter = new Intl.DateTimeFormat("zh-CN", {
+  timeZone: beijingTimeZone,
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+});
+const beijingDateTimeValueFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: beijingTimeZone,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+  hourCycle: "h23",
+});
 
 const colorPool = [
   "#1aa891",
@@ -78,6 +118,66 @@ function render() {
   renderSites();
 }
 
+function loadAppearance() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(appearanceStorageKey) || "{}");
+    if (typeof saved.backgroundPosition === "string") {
+      state.appearance.backgroundPosition = saved.backgroundPosition;
+    }
+    if (Number.isFinite(Number(saved.glassOpacity))) {
+      state.appearance.glassOpacity = clamp(Number(saved.glassOpacity), 0, 100);
+    }
+  } catch {
+    localStorage.removeItem(appearanceStorageKey);
+  }
+
+  applyAppearance();
+}
+
+function saveAppearance() {
+  localStorage.setItem(appearanceStorageKey, JSON.stringify(state.appearance));
+}
+
+function applyAppearance() {
+  const { backgroundPosition, glassOpacity } = state.appearance;
+  elements.root.style.setProperty("--wallpaper-position", backgroundPosition);
+  elements.root.style.setProperty("--glass-alpha", String(glassOpacity / 100));
+  elements.glassOpacityInput.value = String(glassOpacity);
+  elements.glassOpacityValue.textContent = String(glassOpacity);
+
+  elements.bgPositionGrid.querySelectorAll("[data-bg-position]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.bgPosition === backgroundPosition));
+  });
+}
+
+function setBackgroundPosition(position) {
+  state.appearance.backgroundPosition = position;
+  applyAppearance();
+  saveAppearance();
+}
+
+function setGlassOpacity(opacity) {
+  state.appearance.glassOpacity = clamp(Number(opacity), 0, 100);
+  applyAppearance();
+  saveAppearance();
+}
+
+function toggleAppearancePanel(forceOpen) {
+  const shouldOpen = forceOpen ?? elements.appearancePanel.hidden;
+  elements.appearancePanel.hidden = !shouldOpen;
+  elements.appearanceButton.setAttribute("aria-expanded", String(shouldOpen));
+}
+
+function updateBeijingClock() {
+  const now = new Date();
+  const dateText = beijingDateFormatter.format(now);
+  const timeText = beijingTimeFormatter.format(now);
+  elements.beijingDate.textContent = dateText;
+  elements.beijingTime.textContent = timeText;
+  elements.beijingTime.dateTime = getBeijingDateTimeValue(now);
+  elements.beijingTime.parentElement.setAttribute("aria-label", `北京时间 ${dateText} ${timeText}`);
+}
+
 function renderCategories() {
   elements.categoryBar.innerHTML = state.categories
     .map(
@@ -109,11 +209,14 @@ function renderSiteCard(site, index = 0) {
   const fallback = getInitial(site.name);
   const tags = [...site.tags, site.description, getCategoryName(site.category)].filter(Boolean).join(" ");
   const staggerDelay = Math.min(index * 35, 600);
+  const tooltip = [site.name, site.description].filter(Boolean).join(" - ");
 
   return `
     <a
       class="site-card"
       href="${escapeAttribute(site.url)}"
+      title="${escapeAttribute(tooltip)}"
+      aria-label="${escapeAttribute(tooltip)}"
       target="_blank"
       rel="noopener noreferrer"
       data-search="${escapeAttribute(tags)}"
@@ -123,8 +226,8 @@ function renderSiteCard(site, index = 0) {
         <img src="${escapeAttribute(site.icon)}" alt="" loading="lazy" onerror="this.replaceWith(createFallbackIcon('${escapeAttribute(fallback)}'))" />
       </span>
       <span class="site-copy">
-        <span class="site-name">${escapeHtml(site.name)}</span>
-        <span class="site-description">${escapeHtml(site.description || getCategoryName(site.category))}</span>
+        <span class="site-name" title="${escapeAttribute(site.name)}">${escapeHtml(site.name)}</span>
+        <span class="site-description" title="${escapeAttribute(site.description || getCategoryName(site.category))}">${escapeHtml(site.description || getCategoryName(site.category))}</span>
       </span>
     </a>
   `;
@@ -195,6 +298,19 @@ function escapeAttribute(value) {
   return escapeHtml(value).replace(/`/g, "&#096;");
 }
 
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function getBeijingDateTimeValue(date) {
+  const parts = beijingDateTimeValueFormatter.formatToParts(date).reduce((result, part) => {
+    result[part.type] = part.value;
+    return result;
+  }, {});
+
+  return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+08:00`;
+}
+
 elements.categoryBar.addEventListener("click", (event) => {
   const button = event.target.closest("[data-category]");
   if (!button) return;
@@ -208,6 +324,27 @@ elements.searchInput.addEventListener("input", (event) => {
 
 elements.resetButton.addEventListener("click", resetFilters);
 
+elements.appearanceButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  toggleAppearancePanel();
+});
+
+elements.appearancePanel.addEventListener("click", (event) => {
+  event.stopPropagation();
+  const positionButton = event.target.closest("[data-bg-position]");
+  if (positionButton) {
+    setBackgroundPosition(positionButton.dataset.bgPosition);
+  }
+});
+
+elements.glassOpacityInput.addEventListener("input", (event) => {
+  setGlassOpacity(event.target.value);
+});
+
+document.addEventListener("click", () => {
+  toggleAppearancePanel(false);
+});
+
 document.addEventListener("keydown", (event) => {
   const isMac = navigator.platform.toLowerCase().includes("mac");
   const modKey = isMac ? event.metaKey : event.ctrlKey;
@@ -219,6 +356,13 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && document.activeElement === elements.searchInput) {
     elements.searchInput.blur();
   }
+  if (event.key === "Escape" && !elements.appearancePanel.hidden) {
+    toggleAppearancePanel(false);
+    elements.appearanceButton.focus();
+  }
 });
 
+loadAppearance();
+updateBeijingClock();
+setInterval(updateBeijingClock, 1000);
 loadSites();

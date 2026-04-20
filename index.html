@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260420-clock-inline" />
   </head>
   <body>
     <div class="wallpaper" aria-hidden="true">
@@ -68,9 +68,12 @@
           </form>
 
           <button
+            id="appearanceButton"
             class="icon-button more-button"
             type="button"
             aria-label="更多选项"
+            aria-expanded="false"
+            aria-controls="appearancePanel"
           >
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <circle cx="5" cy="10" r="1.5" />
@@ -80,23 +83,67 @@
           </button>
         </header>
 
+        <section class="appearance-panel" id="appearancePanel" aria-label="外观设置" hidden>
+          <div class="panel-section">
+            <div class="panel-heading">
+              <h2>背景位置</h2>
+              <p>选择图片显示的焦点</p>
+            </div>
+            <div class="position-grid" id="bgPositionGrid" role="group" aria-label="背景图位置">
+              <button type="button" data-bg-position="left top">左上</button>
+              <button type="button" data-bg-position="center top">上</button>
+              <button type="button" data-bg-position="right top">右上</button>
+              <button type="button" data-bg-position="left center">左</button>
+              <button type="button" data-bg-position="center center">中</button>
+              <button type="button" data-bg-position="right center">右</button>
+              <button type="button" data-bg-position="left bottom">左下</button>
+              <button type="button" data-bg-position="center bottom">下</button>
+              <button type="button" data-bg-position="right bottom">右下</button>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="panel-heading">
+              <h2>毛玻璃透明度</h2>
+              <p><span id="glassOpacityValue">28</span>%</p>
+            </div>
+            <label class="range-field">
+              <span class="sr-only">调整毛玻璃透明度</span>
+              <input
+                id="glassOpacityInput"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value="28"
+              />
+            </label>
+          </div>
+        </section>
+
         <nav class="category-bar" aria-label="分类筛选" id="categoryBar"></nav>
 
         <section class="status-row" aria-live="polite">
           <p id="resultCount">正在载入导航…</p>
-          <button id="resetButton" type="button">
-            <svg viewBox="0 0 12 12" aria-hidden="true">
-              <path
-                d="M2 6h8M6 2l4 4-4 4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            查看全部
-          </button>
+          <div class="status-actions">
+            <div class="beijing-clock" aria-live="off">
+              <span id="beijingDate" class="clock-date"></span>
+              <time id="beijingTime" datetime=""></time>
+            </div>
+            <button id="resetButton" type="button">
+              <svg viewBox="0 0 12 12" aria-hidden="true">
+                <path
+                  d="M2 6h8M6 2l4 4-4 4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              查看全部
+            </button>
+          </div>
         </section>
 
         <section class="app-grid" id="appGrid" aria-label="网站列表"></section>
@@ -129,6 +176,6 @@
       </section>
     </main>
 
-    <script src="./app.js" defer></script>
+    <script src="./app.js?v=20260420-clock" defer></script>
   </body>
 </html>
