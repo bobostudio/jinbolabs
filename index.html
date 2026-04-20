@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jinbo Launchpad · 应用程序</title>
+    <title>JinBo Launchpad</title>
     <meta name="color-scheme" content="light" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -26,28 +29,26 @@
 
         <header class="topbar">
           <div class="traffic-lights" aria-hidden="true">
-            <button class="tl tl-close" tabindex="-1" aria-hidden="true"></button>
-            <button class="tl tl-minimize" tabindex="-1" aria-hidden="true"></button>
-            <button class="tl tl-maximize" tabindex="-1" aria-hidden="true"></button>
+            <button
+              class="tl tl-close"
+              tabindex="-1"
+              aria-hidden="true"
+            ></button>
+            <button
+              class="tl tl-minimize"
+              tabindex="-1"
+              aria-hidden="true"
+            ></button>
+            <button
+              class="tl tl-maximize"
+              tabindex="-1"
+              aria-hidden="true"
+            ></button>
           </div>
 
           <div class="title-block">
-            <span class="app-mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" role="img">
-                <defs>
-                  <linearGradient id="markGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#8aa0ff" />
-                    <stop offset="1" stop-color="#5568e4" />
-                  </linearGradient>
-                </defs>
-                <rect x="2" y="2" width="36" height="36" rx="9.5" fill="url(#markGradient)" />
-                <path d="M13.2 27.4 L20 12.6 L26.8 27.4 M15.4 22.9 L24.6 22.9"
-                      stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-              </svg>
-            </span>
             <div class="title-text">
-              <span class="eyebrow">Jinbo Launchpad</span>
-              <h1>应用程序</h1>
+              <h1>JinBo LaunchPad</h1>
             </div>
           </div>
 
@@ -57,11 +58,20 @@
               <circle cx="7" cy="7" r="5" />
               <line x1="10.6" y1="10.6" x2="14" y2="14" />
             </svg>
-            <input id="site-search" type="search" placeholder="搜索" autocomplete="off" spellcheck="false" />
-            <kbd class="kbd" aria-hidden="true">⌘K</kbd>
+            <input
+              id="site-search"
+              type="search"
+              placeholder="搜索"
+              autocomplete="off"
+              spellcheck="false"
+            />
           </form>
 
-          <button class="icon-button more-button" type="button" aria-label="更多选项">
+          <button
+            class="icon-button more-button"
+            type="button"
+            aria-label="更多选项"
+          >
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <circle cx="5" cy="10" r="1.5" />
               <circle cx="10" cy="10" r="1.5" />
@@ -76,7 +86,14 @@
           <p id="resultCount">正在载入导航…</p>
           <button id="resetButton" type="button">
             <svg viewBox="0 0 12 12" aria-hidden="true">
-              <path d="M2 6h8M6 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M2 6h8M6 2l4 4-4 4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             查看全部
           </button>
@@ -87,8 +104,23 @@
         <section class="empty-state" id="emptyState" hidden>
           <span class="empty-glyph" aria-hidden="true">
             <svg viewBox="0 0 64 64" role="img">
-              <circle cx="28" cy="28" r="18" fill="none" stroke="currentColor" stroke-width="2.4" />
-              <line x1="42" y1="42" x2="54" y2="54" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" />
+              <circle
+                cx="28"
+                cy="28"
+                r="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              />
+              <line
+                x1="42"
+                y1="42"
+                x2="54"
+                y2="54"
+                stroke="currentColor"
+                stroke-width="2.8"
+                stroke-linecap="round"
+              />
             </svg>
           </span>
           <h2>没有找到匹配的网站</h2>
