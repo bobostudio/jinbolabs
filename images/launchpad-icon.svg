@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">JinBo LaunchPad USB drive icon</title>
+  <desc id="desc">A minimal line drawing of a USB memory drive.</desc>
+  <g
+    fill="none"
+    stroke="#1b2119"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M91 78h74c10 0 18 8 18 18v72c0 28-22 50-50 50h-10c-28 0-50-22-50-50V96c0-10 8-18 18-18Z"
+      stroke-width="15"
+    />
+    <path d="M92 78V43h72v35" stroke-width="15" />
+    <path d="M110 42v-9h36v9" stroke-width="15" />
+    <path d="M105 112h46" stroke-width="13" opacity="0.62" />
+    <path d="M128 146v33" stroke-width="13" opacity="0.62" />
+    <path d="M112 179h32" stroke-width="13" opacity="0.62" />
+  </g>
+</svg>
