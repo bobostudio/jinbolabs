@@ -1,12 +1,33 @@
 {
   "categories": [
-    { "id": "dev", "name": "Developer Tools" },
-    { "id": "productivity", "name": "效率与财务" },
-    { "id": "social", "name": "社交" },
-    { "id": "tools", "name": "工具" },
-    { "id": "creative", "name": "创意" },
-    { "id": "entertainment", "name": "娱乐" },
-    { "id": "other", "name": "其他" }
+    {
+      "id": "dev",
+      "name": "Developer Tools"
+    },
+    {
+      "id": "productivity",
+      "name": "效率与财务"
+    },
+    {
+      "id": "social",
+      "name": "社交"
+    },
+    {
+      "id": "tools",
+      "name": "工具"
+    },
+    {
+      "id": "creative",
+      "name": "创意"
+    },
+    {
+      "id": "entertainment",
+      "name": "娱乐"
+    },
+    {
+      "id": "other",
+      "name": "其他"
+    }
   ],
   "sites": [
     {
@@ -15,7 +36,11 @@
       "url": "https://github.com",
       "category": "dev",
       "description": "代码托管与开源协作",
-      "tags": ["code", "git", "repo"],
+      "tags": [
+        "code",
+        "git",
+        "repo"
+      ],
       "color": "#24292f"
     },
     {
@@ -24,26 +49,11 @@
       "url": "https://vercel.com",
       "category": "dev",
       "description": "前端部署与预览",
-      "tags": ["deploy", "frontend"],
+      "tags": [
+        "deploy",
+        "frontend"
+      ],
       "color": "#111111"
-    },
-    {
-      "id": "figma",
-      "name": "Figma",
-      "url": "https://www.figma.com",
-      "category": "creative",
-      "description": "界面设计与原型",
-      "tags": ["design", "ui", "prototype"],
-      "color": "#f24e1e"
-    },
-    {
-      "id": "notion",
-      "name": "Notion",
-      "url": "https://www.notion.so",
-      "category": "productivity",
-      "description": "笔记、知识库与项目管理",
-      "tags": ["note", "docs", "task"],
-      "color": "#2f3437"
     },
     {
       "id": "openai",
@@ -51,7 +61,11 @@
       "url": "https://openai.com",
       "category": "tools",
       "description": "AI 工具与模型",
-      "tags": ["ai", "chatgpt", "model"],
+      "tags": [
+        "ai",
+        "chatgpt",
+        "model"
+      ],
       "color": "#14a37f"
     },
     {
@@ -60,7 +74,10 @@
       "url": "https://chatgpt.com",
       "category": "tools",
       "description": "日常问答、写作与编程助手",
-      "tags": ["ai", "assistant"],
+      "tags": [
+        "ai",
+        "assistant"
+      ],
       "color": "#10a37f"
     },
     {
@@ -69,7 +86,10 @@
       "url": "https://www.youtube.com",
       "category": "entertainment",
       "description": "视频与频道订阅",
-      "tags": ["video", "music"],
+      "tags": [
+        "video",
+        "music"
+      ],
       "color": "#ff0033"
     },
     {
@@ -78,7 +98,11 @@
       "url": "https://www.bilibili.com",
       "category": "entertainment",
       "description": "视频、番剧与直播",
-      "tags": ["video", "anime", "live"],
+      "tags": [
+        "video",
+        "anime",
+        "live"
+      ],
       "color": "#00aeec"
     },
     {
@@ -87,17 +111,11 @@
       "url": "https://x.com",
       "category": "social",
       "description": "实时信息流",
-      "tags": ["social", "news"],
+      "tags": [
+        "social",
+        "news"
+      ],
       "color": "#111111"
-    },
-    {
-      "id": "weibo",
-      "name": "微博",
-      "url": "https://weibo.com",
-      "category": "social",
-      "description": "热点、话题与社交",
-      "tags": ["social", "trend"],
-      "color": "#e6162d"
     },
     {
       "id": "google",
@@ -105,7 +123,9 @@
       "url": "https://www.google.com",
       "category": "tools",
       "description": "网页搜索",
-      "tags": ["search"],
+      "tags": [
+        "search"
+      ],
       "color": "#4285f4"
     },
     {
@@ -114,7 +134,10 @@
       "url": "https://dribbble.com",
       "category": "creative",
       "description": "设计灵感",
-      "tags": ["design", "inspiration"],
+      "tags": [
+        "design",
+        "inspiration"
+      ],
       "color": "#ea4c89"
     },
     {
@@ -123,7 +146,10 @@
       "url": "https://unsplash.com",
       "category": "creative",
       "description": "高质量图片素材",
-      "tags": ["photo", "image"],
+      "tags": [
+        "photo",
+        "image"
+      ],
       "color": "#111111"
     },
     {
@@ -132,7 +158,10 @@
       "url": "https://www.producthunt.com",
       "category": "dev",
       "description": "新产品发现",
-      "tags": ["startup", "product"],
+      "tags": [
+        "startup",
+        "product"
+      ],
       "color": "#da552f"
     },
     {
@@ -141,7 +170,11 @@
       "url": "https://linear.app",
       "category": "productivity",
       "description": "任务与研发管理",
-      "tags": ["task", "issue", "project"],
+      "tags": [
+        "task",
+        "issue",
+        "project"
+      ],
       "color": "#5e6ad2"
     },
     {
@@ -150,7 +183,10 @@
       "url": "https://stripe.com",
       "category": "productivity",
       "description": "支付与财务工具",
-      "tags": ["payment", "finance"],
+      "tags": [
+        "payment",
+        "finance"
+      ],
       "color": "#635bff"
     },
     {
@@ -159,7 +195,11 @@
       "url": "https://www.cloudflare.com",
       "category": "dev",
       "description": "DNS、CDN 与安全",
-      "tags": ["cdn", "dns", "security"],
+      "tags": [
+        "cdn",
+        "dns",
+        "security"
+      ],
       "color": "#f38020"
     },
     {
@@ -168,7 +208,11 @@
       "url": "https://developer.apple.com",
       "category": "dev",
       "description": "Apple 平台开发文档",
-      "tags": ["ios", "macos", "docs"],
+      "tags": [
+        "ios",
+        "macos",
+        "docs"
+      ],
       "color": "#6e6e73"
     },
     {
@@ -177,17 +221,12 @@
       "url": "https://developer.mozilla.org",
       "category": "dev",
       "description": "Web 标准文档",
-      "tags": ["html", "css", "javascript"],
+      "tags": [
+        "html",
+        "css",
+        "javascript"
+      ],
       "color": "#83d0f2"
-    },
-    {
-      "id": "douban",
-      "name": "豆瓣",
-      "url": "https://www.douban.com",
-      "category": "entertainment",
-      "description": "书影音与小组",
-      "tags": ["movie", "book", "music"],
-      "color": "#2e963d"
     },
     {
       "id": "yuque",
@@ -195,26 +234,12 @@
       "url": "https://www.yuque.com",
       "category": "productivity",
       "description": "团队知识库",
-      "tags": ["docs", "knowledge"],
+      "tags": [
+        "docs",
+        "knowledge"
+      ],
+      "icon": "https://icons.duckduckgo.com/ip3/yuque.com.ico",
       "color": "#00b96b"
-    },
-    {
-      "id": "miro",
-      "name": "Miro",
-      "url": "https://miro.com",
-      "category": "tools",
-      "description": "在线白板",
-      "tags": ["whiteboard", "workshop"],
-      "color": "#ffd02f"
-    },
-    {
-      "id": "readwise",
-      "name": "Readwise",
-      "url": "https://readwise.io",
-      "category": "productivity",
-      "description": "阅读摘录与复习",
-      "tags": ["read", "highlight"],
-      "color": "#ffb100"
     },
     {
       "id": "claude",
@@ -222,7 +247,10 @@
       "url": "https://claude.ai",
       "category": "tools",
       "description": "AI 写作与分析助手",
-      "tags": ["ai", "assistant"],
+      "tags": [
+        "ai",
+        "assistant"
+      ],
       "color": "#d97757"
     }
   ]

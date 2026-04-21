@@ -120,7 +120,9 @@ function render() {
 
 function loadAppearance() {
   try {
-    const saved = JSON.parse(localStorage.getItem(appearanceStorageKey) || "{}");
+    const saved = JSON.parse(
+      localStorage.getItem(appearanceStorageKey) || "{}",
+    );
     if (typeof saved.backgroundPosition === "string") {
       state.appearance.backgroundPosition = saved.backgroundPosition;
     }
@@ -145,9 +147,14 @@ function applyAppearance() {
   elements.glassOpacityInput.value = String(glassOpacity);
   elements.glassOpacityValue.textContent = String(glassOpacity);
 
-  elements.bgPositionGrid.querySelectorAll("[data-bg-position]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.bgPosition === backgroundPosition));
-  });
+  elements.bgPositionGrid
+    .querySelectorAll("[data-bg-position]")
+    .forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.bgPosition === backgroundPosition),
+      );
+    });
 }
 
 function setBackgroundPosition(position) {
@@ -175,7 +182,10 @@ function updateBeijingClock() {
   elements.beijingDate.textContent = dateText;
   elements.beijingTime.textContent = timeText;
   elements.beijingTime.dateTime = getBeijingDateTimeValue(now);
-  elements.beijingTime.parentElement.setAttribute("aria-label", `北京时间 ${dateText} ${timeText}`);
+  elements.beijingTime.parentElement.setAttribute(
+    "aria-label",
+    `北京时间 ${dateText} ${timeText}`,
+  );
 }
 
 function renderCategories() {
@@ -197,17 +207,24 @@ function renderCategories() {
 
 function renderSites() {
   const filteredSites = getFilteredSites();
-  const suffix = state.activeCategory === "all" ? "" : ` · ${getCategoryName(state.activeCategory)}`;
+  const suffix =
+    state.activeCategory === "all"
+      ? ""
+      : ` · ${getCategoryName(state.activeCategory)}`;
   elements.resultCount.textContent = `${filteredSites.length} 个网站${suffix}`;
   elements.emptyState.hidden = filteredSites.length > 0;
   elements.appGrid.hidden = filteredSites.length === 0;
 
-  elements.appGrid.innerHTML = filteredSites.map((site, i) => renderSiteCard(site, i)).join("");
+  elements.appGrid.innerHTML = filteredSites
+    .map((site, i) => renderSiteCard(site, i))
+    .join("");
 }
 
 function renderSiteCard(site, index = 0) {
   const fallback = getInitial(site.name);
-  const tags = [...site.tags, site.description, getCategoryName(site.category)].filter(Boolean).join(" ");
+  const tags = [...site.tags, site.description, getCategoryName(site.category)]
+    .filter(Boolean)
+    .join(" ");
   const staggerDelay = Math.min(index * 35, 600);
   const tooltip = [site.name, site.description].filter(Boolean).join(" - ");
 
@@ -237,8 +254,15 @@ function getFilteredSites() {
   const query = state.query.trim().toLowerCase();
 
   return state.sites.filter((site) => {
-    const categoryMatched = state.activeCategory === "all" || site.category === state.activeCategory;
-    const haystack = [site.name, site.description, site.url, site.category, ...site.tags]
+    const categoryMatched =
+      state.activeCategory === "all" || site.category === state.activeCategory;
+    const haystack = [
+      site.name,
+      site.description,
+      site.url,
+      site.category,
+      ...site.tags,
+    ]
       .join(" ")
       .toLowerCase();
     return categoryMatched && (!query || haystack.includes(query));
@@ -258,7 +282,10 @@ function resetFilters() {
 }
 
 function getCategoryName(categoryId) {
-  return state.categories.find((category) => category.id === categoryId)?.name || "其他";
+  return (
+    state.categories.find((category) => category.id === categoryId)?.name ||
+    "其他"
+  );
 }
 
 function getInitial(name) {
@@ -268,7 +295,7 @@ function getInitial(name) {
 function getFaviconUrl(url) {
   try {
     const domain = new URL(url).hostname;
-    return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+    return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
   } catch {
     return "";
   }
@@ -303,10 +330,12 @@ function clamp(value, min, max) {
 }
 
 function getBeijingDateTimeValue(date) {
-  const parts = beijingDateTimeValueFormatter.formatToParts(date).reduce((result, part) => {
-    result[part.type] = part.value;
-    return result;
-  }, {});
+  const parts = beijingDateTimeValueFormatter
+    .formatToParts(date)
+    .reduce((result, part) => {
+      result[part.type] = part.value;
+      return result;
+    }, {});
 
   return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+08:00`;
 }
@@ -353,7 +382,10 @@ document.addEventListener("keydown", (event) => {
     elements.searchInput.focus();
     elements.searchInput.select();
   }
-  if (event.key === "Escape" && document.activeElement === elements.searchInput) {
+  if (
+    event.key === "Escape" &&
+    document.activeElement === elements.searchInput
+  ) {
     elements.searchInput.blur();
   }
   if (event.key === "Escape" && !elements.appearancePanel.hidden) {
