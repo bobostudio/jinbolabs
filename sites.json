@@ -252,6 +252,309 @@
         "assistant"
       ],
       "color": "#d97757"
+    },
+    {
+      "id": "modelscope",
+      "name": "ModelScope",
+      "url": "https://www.modelscope.cn",
+      "category": "dev",
+      "description": "AI 模型开源社区与平台",
+      "tags": [
+        "ai",
+        "model",
+        "learning"
+      ],
+      "color": "#4a90e2"
+    },
+    {
+      "id": "adventofagents",
+      "name": "Advent of Agents",
+      "url": "https://adventofagents.com",
+      "category": "dev",
+      "description": "AI Agent 学习与实践",
+      "tags": [
+        "ai",
+        "agent",
+        "learning"
+      ],
+      "color": "#f59e0b"
+    },
+    {
+      "id": "datawhale",
+      "name": "Datawhale",
+      "url": "https://www.datawhale.cn",
+      "category": "dev",
+      "description": "AI 学习开源社区",
+      "tags": [
+        "ai",
+        "learning",
+        "community"
+      ],
+      "color": "#008exb"
+    },
+    {
+      "id": "deeplearning-ai",
+      "name": "DeepLearning.AI",
+      "url": "https://www.deeplearning.ai",
+      "category": "dev",
+      "description": "深度学习在线课程",
+      "tags": [
+        "ai",
+        "deeplearning",
+        "course"
+      ],
+      "color": "#00a0e9"
+    },
+    {
+      "id": "hf-agents-course",
+      "name": "Hugging Face Agents Course",
+      "url": "https://huggingface.co/agents-course",
+      "category": "dev",
+      "description": "Hugging Face AI Agent 课程",
+      "tags": [
+        "ai",
+        "agent",
+        "huggingface"
+      ],
+      "color": "#ffd92e"
+    },
+    {
+      "id": "openbuild",
+      "name": "OpenBuild",
+      "url": "https://openbuild.xyz/learn/courses?page=1&lang=zh",
+      "category": "dev",
+      "description": "开发者学习平台",
+      "tags": [
+        "learning",
+        "course",
+        "dev"
+      ],
+      "color": "#0073ff"
+    },
+    {
+      "id": "geektime-docs",
+      "name": "极客时间文档",
+      "url": "https://uaxe.github.io/geektime-docs",
+      "category": "dev",
+      "description": "极客时间课程文档",
+      "tags": [
+        "course",
+        "docs",
+        "tech"
+      ],
+      "color": "#00b96b"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "url": "https://www.perplexity.ai",
+      "category": "tools",
+      "description": "AI 搜索与问答",
+      "tags": [
+        "ai",
+        "search"
+      ],
+      "color": "#1e2a4a"
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "url": "https://www.reddit.com",
+      "category": "social",
+      "description": "社区讨论与资讯",
+      "tags": [
+        "social",
+        "community",
+        "forum"
+      ],
+      "color": "#ff4500"
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com",
+      "category": "social",
+      "description": "科技与创业资讯",
+      "tags": [
+        "news",
+        "tech",
+        "startup"
+      ],
+      "color": "#ff6600"
+    },
+    {
+      "id": "mbd",
+      "name": "知识星球",
+      "url": "https://mbd.pub/o/explore",
+      "category": "social",
+      "description": "知识分享社区",
+      "tags": [
+        "knowledge",
+        "community"
+      ],
+      "color": "#2a5caa"
+    },
+    {
+      "id": "watcha",
+      "name": "观猹",
+      "url": "https://watcha.cn/products",
+      "category": "entertainment",
+      "description": "AI产品发现与推荐",
+      "tags": [
+        "movie",
+        "film",
+        "recommend"
+      ],
+      "color": "#d32f2f"
+    },
+    {
+      "id": "ahrefs-seo",
+      "name": "Ahrefs Free SEO Tools",
+      "url": "https://ahrefs.com/free-seo-tools",
+      "category": "tools",
+      "description": "免费 SEO 工具集",
+      "tags": [
+        "seo",
+        "tools",
+        "analytics"
+      ],
+      "color": "#2299dd"
+    },
+    {
+      "id": "pagespeed",
+      "name": "PageSpeed Insights",
+      "url": "https://pagespeed.web.dev",
+      "category": "dev",
+      "description": "网页性能检测工具",
+      "tags": [
+        "performance",
+        "seo",
+        "web"
+      ],
+      "color": "#4285f4"
+    },
+    {
+      "id": "ubersuggest",
+      "name": "Ubersuggest",
+      "url": "https://ubersuggest.zendesk.com",
+      "category": "tools",
+      "description": "SEO 关键词工具",
+      "tags": [
+        "seo",
+        "keywords"
+      ],
+      "color": "#00aad2"
+    },
+    {
+      "id": "creem",
+      "name": "Creem",
+      "url": "https://www.creem.io",
+      "category": "productivity",
+      "description": "创作者收款平台",
+      "tags": [
+        "payment",
+        "creator",
+        "revenue"
+      ],
+      "color": "#7c3aed"
+    },
+    {
+      "id": "skills-sh",
+      "name": "Skills.sh",
+      "url": "https://skills.sh",
+      "category": "dev",
+      "description": "开发者技能学习",
+      "tags": [
+        "learning",
+        "skills",
+        "dev"
+      ],
+      "color": "#10b981"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "url": "https://www.kimi.com/websites",
+      "category": "tools",
+      "description": "AI 助手与工具集",
+      "tags": [
+        "ai",
+        "assistant"
+      ],
+      "color": "#5e7bfd"
+    },
+    {
+      "id": "qwen",
+      "name": "通义千问",
+      "url": "https://chat.qwen.ai",
+      "category": "tools",
+      "description": "阿里 AI 对话助手",
+      "tags": [
+        "ai",
+        "chat"
+      ],
+      "color": "#722md8"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "url": "https://chat.deepseek.com",
+      "category": "tools",
+      "description": "深度求索 AI 助手",
+      "tags": [
+        "ai",
+        "chat"
+      ],
+      "color": "#0066cc"
+    },
+    {
+      "id": "jimeng",
+      "name": "即梦 AI",
+      "url": "https://jimeng.jianying.com/ai-tool/home",
+      "category": "creative",
+      "description": "AI 图像与视频生成",
+      "tags": [
+        "ai",
+        "image",
+        "creative"
+      ],
+      "color": "#ff6b35"
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "url": "https://www.doubao.com/chat",
+      "category": "tools",
+      "description": "字节跳动 AI 助手",
+      "tags": [
+        "ai",
+        "chat"
+      ],
+      "color": "#0099ff"
+    },
+    {
+      "id": "stepfun",
+      "name": "阶跃星辰",
+      "url": "https://www.stepfun.com/chats/new",
+      "category": "tools",
+      "description": "AI 对话助手",
+      "tags": [
+        "ai",
+        "chat"
+      ],
+      "color": "#00d4aa"
+    },
+    {
+      "id": "minimaxi-agent",
+      "name": "MiniMax Agent",
+      "url": "https://agent.minimaxi.com",
+      "category": "tools",
+      "description": "AI Agent 平台",
+      "tags": [
+        "ai",
+        "agent"
+      ],
+      "color": "#6366f1"
     }
   ]
 }
