@@ -17,6 +17,10 @@
       "name": "工具"
     },
     {
+      "id": "seo",
+      "name": "SEO"
+    },
+    {
       "id": "creative",
       "name": "创意与设计"
     },
@@ -555,6 +559,97 @@
         "agent"
       ],
       "color": "#6366f1"
+    },
+    {
+      "id": "dynadot",
+      "name": "Dynadot",
+      "url": "https://www.dynadot.com/zh/",
+      "category": "dev",
+      "description": "域名注册、解析与管理",
+      "tags": [
+        "domain",
+        "dns",
+        "registrar"
+      ],
+      "color": "#00a86b"
+    },
+    {
+      "id": "adsterra-publishers",
+      "name": "Adsterra Publishers",
+      "url": "https://beta.publishers.adsterra.com/websites",
+      "category": "productivity",
+      "description": "广告变现与网站发布商管理",
+      "tags": [
+        "ads",
+        "monetization",
+        "publisher"
+      ],
+      "color": "#6b4eff"
+    },
+    {
+      "id": "microsoft-clarity",
+      "name": "Microsoft Clarity",
+      "url": "https://clarity.microsoft.com/projects",
+      "category": "seo",
+      "description": "用户行为分析、录屏与热力图",
+      "tags": [
+        "analytics",
+        "heatmap",
+        "session"
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "racknerd",
+      "name": "RackNerd",
+      "url": "https://my.racknerd.com/clientarea.php",
+      "category": "dev",
+      "description": "VPS 与主机客户中心",
+      "tags": [
+        "hosting",
+        "vps",
+        "server"
+      ],
+      "color": "#1d4ed8"
+    },
+    {
+      "id": "gamsgo",
+      "name": "GamsGo",
+      "url": "https://www.gamsgo.com/zh/",
+      "category": "tools",
+      "description": "数字订阅与会员服务",
+      "tags": [
+        "subscription",
+        "membership",
+        "tools"
+      ],
+      "color": "#ff7a00"
+    },
+    {
+      "id": "web-cafe",
+      "name": "Web.cafe",
+      "url": "https://new.web.cafe/",
+      "category": "seo",
+      "description": "新网站发现与 SEO 入口",
+      "tags": [
+        "seo",
+        "directory",
+        "traffic"
+      ],
+      "color": "#fb7185"
+    },
+    {
+      "id": "semrush",
+      "name": "Semrush",
+      "url": "https://www.semrush.com/",
+      "category": "seo",
+      "description": "SEO、关键词与竞品分析",
+      "tags": [
+        "seo",
+        "keywords",
+        "analytics"
+      ],
+      "color": "#ff642d"
     }
   ]
 }

@@ -26,7 +26,7 @@ const elements = {
   beijingDate: document.querySelector("#beijingDate"),
 };
 
-const appearanceStorageKey = "jinbo-launchpad-appearance";
+const appearanceStorageKey = "nav-bobostudio-vip-appearance";
 const beijingTimeZone = "Asia/Shanghai";
 const beijingDateFormatter = new Intl.DateTimeFormat("zh-CN", {
   timeZone: beijingTimeZone,
