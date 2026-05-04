@@ -415,7 +415,7 @@
       "id": "ahrefs-seo",
       "name": "Ahrefs Free SEO Tools",
       "url": "https://ahrefs.com/free-seo-tools",
-      "category": "tools",
+      "category": "seo",
       "description": "免费 SEO 工具集",
       "tags": [
         "seo",
@@ -650,6 +650,149 @@
         "analytics"
       ],
       "color": "#ff642d"
+    },
+    {
+      "id": "termsofusegenerator",
+      "name": "Terms of Use Generator",
+      "url": "https://www.termsofusegenerator.net",
+      "category": "tools",
+      "description": "服务条款生成工具",
+      "tags": [
+        "legal",
+        "generator",
+        "website"
+      ],
+      "color": "#0f766e"
+    },
+    {
+      "id": "favicon-io",
+      "name": "favicon.io",
+      "url": "https://favicon.io/favicon-converter",
+      "category": "tools",
+      "description": "Favicon 转换与生成工具",
+      "tags": [
+        "favicon",
+        "icon",
+        "converter"
+      ],
+      "color": "#f97316"
+    },
+    {
+      "id": "addtoany",
+      "name": "AddToAny",
+      "url": "https://www.addtoany.com",
+      "category": "tools",
+      "description": "网站分享按钮与社交流量工具",
+      "tags": [
+        "share",
+        "social",
+        "widget"
+      ],
+      "color": "#ef4444"
+    },
+    {
+      "id": "saaslandingpage",
+      "name": "SaaS Landing Page",
+      "url": "https://saaslandingpage.com",
+      "category": "tools",
+      "description": "SaaS 落地页灵感与案例",
+      "tags": [
+        "saas",
+        "landing-page",
+        "inspiration"
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "saasinterface",
+      "name": "SaaS Interface",
+      "url": "https://saasinterface.com",
+      "category": "creative",
+      "description": "SaaS 界面设计灵感",
+      "tags": [
+        "saas",
+        "ui",
+        "design"
+      ],
+      "color": "#7c3aed"
+    },
+    {
+      "id": "sem-3ue",
+      "name": "SEM 3ue",
+      "url": "https://sem.3ue.co",
+      "category": "seo",
+      "description": "SEO 与搜索营销工具导航",
+      "tags": [
+        "seo",
+        "sem",
+        "directory"
+      ],
+      "color": "#0ea5e9"
+    },
+    {
+      "id": "google-trends",
+      "name": "Google Trends",
+      "url": "https://trends.google.com/trends",
+      "category": "seo",
+      "description": "搜索趋势与关键词热度分析",
+      "tags": [
+        "trends",
+        "keywords",
+        "google"
+      ],
+      "color": "#4285f4"
+    },
+    {
+      "id": "meta-appinn",
+      "name": "小众软件论坛",
+      "url": "https://meta.appinn.net",
+      "category": "social",
+      "description": "应用推荐与社区讨论",
+      "tags": [
+        "community",
+        "apps",
+        "forum"
+      ],
+      "color": "#22c55e"
+    },
+    {
+      "id": "linux-do",
+      "name": "LINUX DO",
+      "url": "https://linux.do",
+      "category": "social",
+      "description": "技术社区与论坛讨论",
+      "tags": [
+        "linux",
+        "community",
+        "forum"
+      ],
+      "color": "#3b82f6"
+    },
+    {
+      "id": "okjike-web",
+      "name": "即刻 Web",
+      "url": "https://web.okjike.com",
+      "category": "social",
+      "description": "兴趣社区与内容讨论",
+      "tags": [
+        "community",
+        "social",
+        "content"
+      ],
+      "color": "#f59e0b"
+    },
+    {
+      "id": "sspai",
+      "name": "少数派",
+      "url": "https://sspai.com",
+      "category": "social",
+      "description": "效率工具、数字生活与社区内容",
+      "tags": [
+        "community",
+        "productivity",
+        "content"
+      ],
+      "color": "#d946ef"
     }
   ]
 }
