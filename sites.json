@@ -910,6 +910,45 @@
         "image"
       ],
       "color": "#e60023"
+    },
+    {
+      "id": "mtcgame-itunes-gift-card",
+      "name": "MTCGame iTunes Gift Card",
+      "url": "https://www.mtcgame.com/zh/apple-store/itunes-hediye-karti",
+      "category": "tools",
+      "description": "Apple Gift Card 与数字点卡购买",
+      "tags": [
+        "gift-card",
+        "apple",
+        "digital"
+      ],
+      "color": "#1f2937"
+    },
+    {
+      "id": "oyunfor",
+      "name": "Oyunfor",
+      "url": "https://oyunfor.com/",
+      "category": "tools",
+      "description": "游戏点卡与数字商品购买",
+      "tags": [
+        "gaming",
+        "gift-card",
+        "digital"
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "appstoreprice",
+      "name": "App Store Price",
+      "url": "https://appstoreprice.org/zh/apps/6448311069",
+      "category": "productivity",
+      "description": "App Store 应用价格查询与区服对比",
+      "tags": [
+        "appstore",
+        "price",
+        "tracking"
+      ],
+      "color": "#0ea5e9"
     }
   ]
 }
