@@ -858,6 +858,58 @@
         "trend"
       ],
       "color": "#ff2442"
+    },
+    {
+      "id": "similarweb",
+      "name": "Similarweb",
+      "url": "https://www.similarweb.com",
+      "category": "seo",
+      "description": "网站流量与竞品分析平台",
+      "tags": [
+        "seo",
+        "traffic",
+        "analytics"
+      ],
+      "color": "#3b82f6"
+    },
+    {
+      "id": "gumroad",
+      "name": "Gumroad",
+      "url": "https://gumroad.com",
+      "category": "productivity",
+      "description": "数字产品销售与创作者变现平台",
+      "tags": [
+        "creator",
+        "payment",
+        "commerce"
+      ],
+      "color": "#ff90e8"
+    },
+    {
+      "id": "theres-an-ai-for-that-requests",
+      "name": "There's An AI For That Requests",
+      "url": "https://theresanaiforthat.com/requests",
+      "category": "tools",
+      "description": "AI 工具需求与场景发现",
+      "tags": [
+        "ai",
+        "directory",
+        "requests"
+      ],
+      "color": "#0f172a"
+    },
+    {
+      "id": "pinterest",
+      "name": "Pinterest",
+      "url": "https://www.pinterest.com",
+      "category": "creative",
+      "description": "图片灵感发现与视觉收藏",
+      "tags": [
+        "design",
+        "inspiration",
+        "image"
+      ],
+      "color": "#e60023"
     }
   ]
 }
