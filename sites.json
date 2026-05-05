@@ -793,6 +793,71 @@
         "content"
       ],
       "color": "#d946ef"
+    },
+    {
+      "id": "reclaude",
+      "name": "ReClaude",
+      "url": "https://reclaude.ai/app",
+      "category": "tools",
+      "description": "AI 助手与模型应用",
+      "tags": [
+        "ai",
+        "assistant",
+        "chat"
+      ],
+      "color": "#06b6d4"
+    },
+    {
+      "id": "chinaz-kwevaluate",
+      "name": "站长工具关键词挖掘",
+      "url": "https://tool.chinaz.com/kwevaluate",
+      "category": "seo",
+      "description": "关键词评估与 SEO 分析工具",
+      "tags": [
+        "seo",
+        "keywords",
+        "chinaz"
+      ],
+      "color": "#1d4ed8"
+    },
+    {
+      "id": "baidu-index",
+      "name": "百度指数",
+      "url": "https://index.baidu.com/v2/index.html",
+      "category": "seo",
+      "description": "百度搜索趋势与需求洞察",
+      "tags": [
+        "seo",
+        "trends",
+        "baidu"
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "algolia-dashboard",
+      "name": "Algolia Dashboard",
+      "url": "https://dashboard.algolia.com",
+      "category": "dev",
+      "description": "搜索服务管理与索引控制台",
+      "tags": [
+        "search",
+        "api",
+        "dashboard"
+      ],
+      "color": "#003dff"
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "小红书",
+      "url": "https://www.xiaohongshu.com/explore?channel_id=homefeed_recommend",
+      "category": "social",
+      "description": "生活方式内容社区与趋势发现",
+      "tags": [
+        "community",
+        "content",
+        "trend"
+      ],
+      "color": "#ff2442"
     }
   ]
 }
