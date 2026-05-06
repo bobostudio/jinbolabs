@@ -9,6 +9,11 @@ const state = {
   },
 };
 
+const uiState = {
+  hasRenderedSites: false,
+  categoryPillFrame: 0,
+};
+
 const elements = {
   root: document.documentElement,
   categoryBar: document.querySelector("#categoryBar"),
@@ -76,7 +81,7 @@ async function loadSites() {
     const data = await response.json();
     state.categories = normalizeCategories(data.categories);
     state.sites = normalizeSites(data.sites);
-    render();
+    render({ animateCards: true });
   } catch (error) {
     elements.resultCount.textContent = "数据载入失败，请检查 sites.json";
     elements.appGrid.innerHTML = "";
@@ -113,9 +118,13 @@ function normalizeSites(sites = []) {
     }));
 }
 
-function render() {
+function render({
+  animateCards = !uiState.hasRenderedSites,
+  animateGrid = false,
+  gridDirection = 0,
+} = {}) {
   renderCategories();
-  renderSites();
+  renderSites({ animateCards, animateGrid, gridDirection });
 }
 
 function loadAppearance() {
@@ -189,23 +198,38 @@ function updateBeijingClock() {
 }
 
 function renderCategories() {
-  elements.categoryBar.innerHTML = state.categories
-    .map(
-      (category) => `
-        <button
-          class="category-button"
-          type="button"
-          data-category="${escapeHtml(category.id)}"
-          aria-pressed="${state.activeCategory === category.id}"
-        >
-          ${escapeHtml(category.name)}
-        </button>
-      `,
-    )
-    .join("");
+  const renderedButtons =
+    elements.categoryBar.querySelectorAll(".category-button").length;
+
+  if (renderedButtons !== state.categories.length) {
+    const buttonsMarkup = state.categories
+      .map(
+        (category) => `
+          <button
+            class="category-button"
+            type="button"
+            data-category="${escapeHtml(category.id)}"
+            aria-pressed="false"
+          >
+            ${escapeHtml(category.name)}
+          </button>
+        `,
+      )
+      .join("");
+
+    elements.categoryBar.innerHTML =
+      `${buttonsMarkup}<span class="category-pill" aria-hidden="true"></span>`;
+  }
+
+  syncCategoryButtons();
+  queueCategoryPillUpdate();
 }
 
-function renderSites() {
+function renderSites({
+  animateCards = false,
+  animateGrid = false,
+  gridDirection = 0,
+} = {}) {
   const filteredSites = getFilteredSites();
   const suffix =
     state.activeCategory === "all"
@@ -216,28 +240,38 @@ function renderSites() {
   elements.appGrid.hidden = filteredSites.length === 0;
 
   elements.appGrid.innerHTML = filteredSites
-    .map((site, i) => renderSiteCard(site, i))
+    .map((site, i) => renderSiteCard(site, i, animateCards))
     .join("");
+
+  if (animateGrid) {
+    animateGridRefresh(filteredSites.length > 0 ? elements.appGrid : elements.emptyState, gridDirection);
+  }
+
+  uiState.hasRenderedSites = true;
 }
 
-function renderSiteCard(site, index = 0) {
+function renderSiteCard(site, index = 0, animateCards = false) {
   const fallback = getInitial(site.name);
   const tags = [...site.tags, site.description, getCategoryName(site.category)]
     .filter(Boolean)
     .join(" ");
-  const staggerDelay = Math.min(index * 35, 600);
+  const staggerDelay = animateCards ? Math.min(index * 35, 600) : 0;
   const tooltip = [site.name, site.description].filter(Boolean).join(" - ");
+  const siteCardClass = animateCards ? "site-card is-entering" : "site-card";
+  const inlineStyle = animateCards
+    ? `--site-color: ${escapeAttribute(site.color)}; --stagger: ${staggerDelay}ms`
+    : `--site-color: ${escapeAttribute(site.color)}`;
 
   return `
     <a
-      class="site-card"
+      class="${siteCardClass}"
       href="${escapeAttribute(site.url)}"
       title="${escapeAttribute(tooltip)}"
       aria-label="${escapeAttribute(tooltip)}"
       target="_blank"
       rel="noopener noreferrer"
       data-search="${escapeAttribute(tags)}"
-      style="--site-color: ${escapeAttribute(site.color)}; --stagger: ${staggerDelay}ms"
+      style="${inlineStyle}"
     >
       <span class="icon-frame" aria-hidden="true">
         <img src="${escapeAttribute(site.icon)}" alt="" loading="lazy" onerror="this.replaceWith(createFallbackIcon('${escapeAttribute(fallback)}'))" />
@@ -270,15 +304,27 @@ function getFilteredSites() {
 }
 
 function setActiveCategory(categoryId) {
+  if (!categoryId || categoryId === state.activeCategory) return;
+  const previousIndex = getCategoryIndex(state.activeCategory);
+  const nextIndex = getCategoryIndex(categoryId);
   state.activeCategory = categoryId;
-  render();
+  render({
+    animateGrid: true,
+    gridDirection: getSlideDirection(previousIndex, nextIndex),
+  });
 }
 
 function resetFilters() {
+  if (state.activeCategory === "all" && !state.query) return;
+  const previousIndex = getCategoryIndex(state.activeCategory);
+  const nextIndex = getCategoryIndex("all");
   state.activeCategory = "all";
   state.query = "";
   elements.searchInput.value = "";
-  render();
+  render({
+    animateGrid: true,
+    gridDirection: getSlideDirection(previousIndex, nextIndex),
+  });
 }
 
 function getCategoryName(categoryId) {
@@ -329,6 +375,78 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+function getCategoryIndex(categoryId) {
+  return state.categories.findIndex((category) => category.id === categoryId);
+}
+
+function getSlideDirection(previousIndex, nextIndex) {
+  if (previousIndex === -1 || nextIndex === -1 || previousIndex === nextIndex) {
+    return 0;
+  }
+
+  return nextIndex > previousIndex ? 1 : -1;
+}
+
+function syncCategoryButtons() {
+  elements.categoryBar
+    .querySelectorAll(".category-button")
+    .forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.category === state.activeCategory),
+      );
+    });
+}
+
+function queueCategoryPillUpdate() {
+  cancelAnimationFrame(uiState.categoryPillFrame);
+  uiState.categoryPillFrame = requestAnimationFrame(updateCategoryPill);
+}
+
+function updateCategoryPill() {
+  const pill = elements.categoryBar.querySelector(".category-pill");
+  const activeButton = elements.categoryBar.querySelector(
+    '.category-button[aria-pressed="true"]',
+  );
+
+  if (!pill || !activeButton) return;
+
+  pill.style.width = `${activeButton.offsetWidth}px`;
+  pill.style.height = `${activeButton.offsetHeight}px`;
+  pill.style.transform = `translate3d(${activeButton.offsetLeft}px, ${activeButton.offsetTop}px, 0)`;
+  pill.style.opacity = "1";
+}
+
+function animateGridRefresh(target, direction = 0) {
+  if (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !target ||
+    target.hidden ||
+    typeof target.animate !== "function"
+  ) {
+    return;
+  }
+
+  const offset = direction === 0 ? 0 : direction * 30;
+
+  target.animate(
+    [
+      {
+        opacity: 0,
+        transform: `translate3d(${offset}px, 0, 0) scale(0.985)`,
+      },
+      {
+        opacity: 1,
+        transform: "translate3d(0, 0, 0) scale(1)",
+      },
+    ],
+    {
+      duration: 240,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+    },
+  );
+}
+
 function getBeijingDateTimeValue(date) {
   const parts = beijingDateTimeValueFormatter
     .formatToParts(date)
@@ -374,6 +492,8 @@ document.addEventListener("click", () => {
   toggleAppearancePanel(false);
 });
 
+window.addEventListener("resize", queueCategoryPillUpdate);
+
 document.addEventListener("keydown", (event) => {
   const isMac = navigator.platform.toLowerCase().includes("mac");
   const modKey = isMac ? event.metaKey : event.ctrlKey;
@@ -397,4 +517,5 @@ document.addEventListener("keydown", (event) => {
 loadAppearance();
 updateBeijingClock();
 setInterval(updateBeijingClock, 1000);
+document.fonts?.ready.then(queueCategoryPillUpdate);
 loadSites();
