@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="./images/launchpad-icon.svg" />
-    <link rel="stylesheet" href="./styles.css?v=20260420-clock-inline" />
+    <link rel="stylesheet" href="./styles.css?v=20260506-layout-io" />
   </head>
   <body>
     <div class="wallpaper" aria-hidden="true">
@@ -120,6 +120,48 @@
               />
             </label>
           </div>
+
+          <div class="panel-section">
+            <div class="panel-heading">
+              <h2>布局调整</h2>
+              <p>恢复、导出或导入当前布局</p>
+            </div>
+            <div class="panel-action-group" role="group" aria-label="布局操作">
+              <button
+                id="resetLayoutButton"
+                class="panel-action-button"
+                type="button"
+                disabled
+              >
+                恢复
+              </button>
+              <button
+                id="exportLayoutButton"
+                class="panel-action-button"
+                type="button"
+              >
+                导出
+              </button>
+              <button
+                id="importLayoutButton"
+                class="panel-action-button"
+                type="button"
+              >
+                导入
+              </button>
+            </div>
+            <input
+              id="importLayoutInput"
+              class="sr-only"
+              type="file"
+              accept="application/json,.json"
+            />
+            <p
+              id="layoutFeedback"
+              class="panel-feedback"
+              aria-live="polite"
+            ></p>
+          </div>
         </section>
 
         <nav class="category-bar" aria-label="分类筛选" id="categoryBar"></nav>
@@ -177,6 +219,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=20260420-clock" defer></script>
+    <script src="./app.js?v=20260506-layout-io" defer></script>
   </body>
 </html>
