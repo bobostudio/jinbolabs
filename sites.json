@@ -31,6 +31,10 @@
     {
       "id": "other",
       "name": "其他"
+    },
+    {
+      "id": "learning",
+      "name": "学习"
     }
   ],
   "sites": [
@@ -261,7 +265,7 @@
       "id": "modelscope",
       "name": "ModelScope",
       "url": "https://www.modelscope.cn",
-      "category": "dev",
+      "category": "learning",
       "description": "AI 模型开源社区与平台",
       "tags": [
         "ai",
@@ -274,7 +278,7 @@
       "id": "adventofagents",
       "name": "Advent of Agents",
       "url": "https://adventofagents.com",
-      "category": "dev",
+      "category": "learning",
       "description": "AI Agent 学习与实践",
       "tags": [
         "ai",
@@ -287,7 +291,7 @@
       "id": "datawhale",
       "name": "Datawhale",
       "url": "https://www.datawhale.cn",
-      "category": "dev",
+      "category": "learning",
       "description": "AI 学习开源社区",
       "tags": [
         "ai",
@@ -313,7 +317,7 @@
       "id": "deeplearning-ai-learn",
       "name": "DeepLearning.AI Learn",
       "url": "https://learn.deeplearning.ai",
-      "category": "dev",
+      "category": "learning",
       "description": "AI 短课程与实践平台",
       "tags": [
         "ai",
@@ -326,20 +330,47 @@
       "id": "hf-agents-course",
       "name": "Hugging Face Agents Course",
       "url": "https://huggingface.co/agents-course",
-      "category": "dev",
+      "category": "learning",
       "description": "Hugging Face AI Agent 课程",
       "tags": [
         "ai",
         "agent",
-        "huggingface"
+        "huggingface",
+        "learning"
       ],
       "color": "#ffd92e"
+    },
+    {
+      "id": "anthropic-academy",
+      "name": "Anthropic Academy",
+      "url": "https://anthropic.skilljar.com",
+      "category": "learning",
+      "description": "Anthropic AI 官方课程与认证",
+      "tags": [
+        "ai",
+        "anthropic",
+        "learning"
+      ],
+      "color": "#d97757"
+    },
+    {
+      "id": "openai-academy",
+      "name": "OpenAI Academy",
+      "url": "https://academy.openai.com",
+      "category": "learning",
+      "description": "OpenAI 官方学习平台",
+      "tags": [
+        "ai",
+        "openai",
+        "learning"
+      ],
+      "color": "#14a37f"
     },
     {
       "id": "openbuild",
       "name": "OpenBuild",
       "url": "https://openbuild.xyz/learn/courses?page=1&lang=zh",
-      "category": "dev",
+      "category": "learning",
       "description": "开发者学习平台",
       "tags": [
         "learning",
@@ -479,7 +510,7 @@
       "id": "skills-sh",
       "name": "Skills.sh",
       "url": "https://skills.sh",
-      "category": "dev",
+      "category": "learning",
       "description": "开发者技能学习",
       "tags": [
         "learning",
