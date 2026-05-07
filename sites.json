@@ -310,6 +310,19 @@
       "color": "#00a0e9"
     },
     {
+      "id": "deeplearning-ai-learn",
+      "name": "DeepLearning.AI Learn",
+      "url": "https://learn.deeplearning.ai",
+      "category": "dev",
+      "description": "AI 短课程与实践平台",
+      "tags": [
+        "ai",
+        "short-courses",
+        "learning"
+      ],
+      "color": "#00a0e9"
+    },
+    {
       "id": "hf-agents-course",
       "name": "Hugging Face Agents Course",
       "url": "https://huggingface.co/agents-course",
@@ -949,6 +962,58 @@
         "tracking"
       ],
       "color": "#0ea5e9"
+    },
+    {
+      "id": "xiaomimimo-console",
+      "name": "小米Mimo",
+      "url": "https://platform.xiaomimimo.com/console/plan-manage",
+      "category": "tools",
+      "description": "小米AI控制台与套餐管理",
+      "tags": [
+        "ai",
+        "console",
+        "xiaomi"
+      ],
+      "color": "#ff6900"
+    },
+    {
+      "id": "minimaxi-payment",
+      "name": "MiniMax 充值中心",
+      "url": "https://platform.minimaxi.com/user-center/payment/token-plan",
+      "category": "tools",
+      "description": "MiniMax Token 充值与套餐管理",
+      "tags": [
+        "ai",
+        "payment",
+        "minimaxi"
+      ],
+      "color": "#6366f1"
+    },
+    {
+      "id": "kimi-code",
+      "name": "Kimi 代码",
+      "url": "https://www.kimi.com/code/console?from=kfc_overview_topbar",
+      "category": "tools",
+      "description": "Kimi 代码控制台",
+      "tags": [
+        "ai",
+        "code",
+        "kimi"
+      ],
+      "color": "#5e7bfd"
+    },
+    {
+      "id": "office-tool-plus",
+      "name": "Office Tool Plus",
+      "url": "https://otp.landian.vip/zh-cn/download.html",
+      "category": "tools",
+      "description": "Office 部署与激活管理工具",
+      "tags": [
+        "office",
+        "microsoft",
+        "tool"
+      ],
+      "color": "#d83b01"
     }
   ]
 }
